@@ -3,111 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSI & ACE Hackathon 2024</title>
+    <title>CSI & ACE Hackathon 2024 - Innovation Partnership</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { height: 100%; font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
-        .parallax { 
+        .parallax {
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
         }
-        .parallax h1 { font-size: 4rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.7);
-            padding: 1rem;
-            z-index: 1000;
-        }
-        nav ul { list-style-type: none; display: flex; justify-content: center; }
-        nav ul li { margin: 0 15px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s; }
-        nav ul li a:hover { color: #0066cc; }
-        .content { padding: 50px 10%; background: white; }
-        .content h2 { color: #0066cc; margin-bottom: 20px; }
-        .btn {
-            display: inline-block;
-            background: #0066cc;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .btn:hover { background: #004c99; }
         .fade-in { opacity: 0; transition: opacity 1s; }
         .fade-in.visible { opacity: 1; }
     </style>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#schedule">Schedule</a></li>
-            <li><a href="#sponsors">Sponsors</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">CSI & ACE Hackathon</a>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:text-blue-200">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-200">About</a></li>
+                <li><a href="#for-companies" class="hover:text-blue-200">For Companies</a></li>
+                <li><a href="#sponsors" class="hover:text-blue-200">Sponsors</a></li>
+                <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <div id="home" class="parallax" style="background-image: url('/api/placeholder/1920/1080');">
-        <div>
-            <h1>CSI & ACE Hackathon 2024</h1>
-            <p>Innovate. Code. Create.</p>
+    <header id="home" class="parallax h-screen flex items-center justify-center text-white" style="background-image: url('/api/placeholder/1920/1080');">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4">CSI & ACE Hackathon 2024</h1>
+            <p class="text-2xl mb-8">Partner with Us to Shape the Future of Tech</p>
+            <a href="#for-companies" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Become a Partner</a>
         </div>
-    </div>
+    </header>
 
-    <div id="about" class="content">
-        <h2 class="fade-in">About the Hackathon</h2>
-        <p class="fade-in">Join us for an exciting weekend of innovation, coding, and problem-solving! The CSI and ACE clubs are coming together to host this year's biggest hackathon event.</p>
-    </div>
+    <main class="container mx-auto py-12">
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-bold mb-4 text-blue-600">About the Hackathon</h2>
+            <p class="text-lg mb-4">Join us for an exciting weekend of innovation, coding, and problem-solving! The CSI and ACE clubs are coming together to host this year's biggest hackathon event, connecting industry leaders with top student talent.</p>
+        </section>
 
-    <div class="parallax" style="background-image: url('/api/placeholder/1920/1080');">
-        <h2>48 Hours of Coding</h2>
-    </div>
+        <section id="for-companies" class="mb-16">
+            <h2 class="text-3xl font-bold mb-4 text-blue-600">For Companies</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4">Submit a Problem Statement</h3>
+                    <p class="mb-4">Challenge our participants with real-world problems and discover innovative solutions.</p>
+                    <div id="problem-statement-form"></div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4">Sponsorship Opportunities</h3>
+                    <p class="mb-4">Support the next generation of tech innovators and gain brand visibility.</p>
+                    <div id="sponsorship-tiers"></div>
+                </div>
+            </div>
+        </section>
 
-    <div id="schedule" class="content">
-        <h2 class="fade-in">Event Schedule</h2>
-        <p class="fade-in">[Insert detailed schedule here]</p>
-    </div>
+        <section id="sponsors" class="mb-16">
+            <h2 class="text-3xl font-bold mb-4 text-blue-600">Our Sponsors</h2>
+            <div id="sponsor-showcase"></div>
+        </section>
 
-    <div class="parallax" style="background-image: url('/api/placeholder/1920/1080');">
-        <h2>Amazing Prizes Await</h2>
-    </div>
+        <section id="contact" class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold mb-4 text-blue-600">Contact Us</h2>
+            <p class="mb-4">Interested in partnering or have questions? Reach out to us!</p>
+            <div id="contact-form"></div>
+        </section>
+    </main>
 
-    <div id="sponsors" class="content">
-        <h2 class="fade-in">Sponsors</h2>
-        <p class="fade-in">We're looking for companies to provide problem statements and sponsorship. Interested in supporting the next generation of tech innovators?</p>
-        <a href="#" class="btn fade-in">Become a Sponsor</a>
-    </div>
+    <footer class="bg-blue-600 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 CSI & ACE Hackathon. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <div id="contact" class="content">
-        <h2 class="fade-in">Contact Us</h2>
-        <p class="fade-in">For inquiries about sponsorship or submitting problem statements, please email us at: sponsor@csiacehackathon.com</p>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
+    <script type="text/babel">
+        // Problem Statement Form Component
+        const ProblemStatementForm = () => {
+            const [formData, setFormData] = React.useState({
+                company: '', problem: '', constraints: '', expectedOutcome: ''
             });
 
-            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-        });
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                console.log('Problem Statement Submitted:', formData);
+                // Here you would typically send this data to your server
+                alert('Thank you for submitting a problem statement! We will review it shortly.');
+            };
 
+            return (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <input
+                        type="text"
+                        placeholder="Company Name"
+                        value={formData.company}
+                        onChange={(e) => setFormData({...formData, company: e.target.value})}
+                        className="w-full p-2 border rounded"
+                        required
+                    />
+                    <textarea
+                        placeholder="Describe the problem"
+                        value={formData.problem}
+                        onChange={(e) => setFormData({...formData, problem: e.target.value})}
+                        className="w-full p-2 border rounded"
+                        required
+                    ></textarea>
+                    <input
+                        type="text"
+                        placeholder="Any constraints or requirements"
+                        value={formData.constraints}
+                        onChange={(e) => setFormData({...formData, constraints: e.target.value})}
+                        className="w-full p-2 border rounded"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Expected outcome"
+                        value={formData.expectedOutcome}
+                        onChange={(e) => setFormData({...formData, expectedOutcome: e.target.value})}
+                        className="w-full p-2 border rounded"
+                    />
+                    <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Submit Problem Statement
+                    </button>
+                </form>
+            );
+        };
+
+        // Sponsorship Tiers Component
+        const SponsorshipTiers = () => {
+            const tiers = [
+                { name: 'Gold', benefits: ['Logo on all materials', 'Speaking opportunity', 'Judging panel seat'], price: '$5000' },
+                { name: 'Silver', benefits: ['Logo on website', 'Booth at event', 'Mentorship opportunity'], price: '$3000' },
+                { name: 'Bronze', benefits: ['Logo on website', 'Mentioned in opening/closing ceremonies'], price: '$1000' },
+            ];
+
+            return (
+                <div className="space-y-4">
+                    {tiers.map((tier, index) => (
+                        <div key={index} className="border p-4 rounded">
+                            <h4 className="font-bold text-lg">{tier.name} Tier - {tier.price}</h4>
+                            <ul className="list-disc list-inside">
+                                {tier.benefits.map((benefit, i) => (
+                                    <li key={i}>{benefit}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Become a Sponsor
+                    </button>
+                </div>
+            );
+        };
+
+        // Sponsor Showcase Component
+        const SponsorShowcase = () => {
+            const sponsors = ['Sponsor 1', 'Sponsor 2', 'Sponsor 3', 'Sponsor 4'];
+            return (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {sponsors.map((sponsor, index) => (
+                        <div key={index} className="bg-white p-4 rounded shadow flex items-center justify-center">
+                            <img src={`/api/placeholder/150/100`} alt={sponsor} className="max-w-full h-auto" />
+                        </div>
+                    ))}
+                </div>
+            );
+        };
+
+        // Contact Form Component
+        const ContactForm = () => {
+            const [formData, setFormData] = React.useState({
+                name: '', email: '', message: ''
+            });
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                console.log('Contact Form Submitted:', formData);
+                // Here you would typically send this data to your server
+                alert('Thank you for your message! We will get back to you soon.');
+            };
+
+            return (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        className="w-full p-2 border rounded"
+                        required
+                    />
+                    <input
+                        type="email"
+                        placeholder="Your Email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        className="w-full p-2 border rounded"
+                        required
+                    />
+                    <textarea
+                        placeholder="Your Message"
+                        value={formData.message}
+                        onChange={(e) => setFormData({...formData, message: e.target.value})}
+                        className="w-full p-2 border rounded"
+                        required
+                    ></textarea>
+                    <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Send Message
+                    </button>
+                </form>
+            );
+        };
+
+        // Render React Components
+        ReactDOM.render(<ProblemStatementForm />, document.getElementById('problem-statement-form'));
+        ReactDOM.render(<SponsorshipTiers />, document.getElementById('sponsorship-tiers'));
+        ReactDOM.render(<SponsorShowcase />, document.getElementById('sponsor-showcase'));
+        ReactDOM.render(<ContactForm />, document.getElementById('contact-form'));
+
+        // Parallax and Fade-in effects
         window.addEventListener('scroll', () => {
             const parallaxElements = document.querySelectorAll('.parallax');
             let scrollPosition = window.pageYOffset;
@@ -116,6 +234,15 @@
                 let offset = element.offsetTop;
                 let speed = 0.5;
                 element.style.backgroundPositionY = (offset - scrollPosition) * speed + 'px';
+            });
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                let elementTop = el.getBoundingClientRect().top;
+                let elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    el.classList.add('visible');
+                }
             });
         });
     </script>
