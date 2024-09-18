@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSI & ACE Hackathon 2024</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { height: 100%; font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
+        .parallax { 
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .parallax h1 { font-size: 4rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            padding: 1rem;
+            z-index: 1000;
+        }
+        nav ul { list-style-type: none; display: flex; justify-content: center; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        nav ul li a:hover { color: #0066cc; }
+        .content { padding: 50px 10%; background: white; }
+        .content h2 { color: #0066cc; margin-bottom: 20px; }
+        .btn {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #004c99; }
+        .fade-in { opacity: 0; transition: opacity 1s; }
+        .fade-in.visible { opacity: 1; }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="parallax" style="background-image: url('/api/placeholder/1920/1080');">
+        <div>
+            <h1>CSI & ACE Hackathon 2024</h1>
+            <p>Innovate. Code. Create.</p>
+        </div>
+    </div>
+
+    <div id="about" class="content">
+        <h2 class="fade-in">About the Hackathon</h2>
+        <p class="fade-in">Join us for an exciting weekend of innovation, coding, and problem-solving! The CSI and ACE clubs are coming together to host this year's biggest hackathon event.</p>
+    </div>
+
+    <div class="parallax" style="background-image: url('/api/placeholder/1920/1080');">
+        <h2>48 Hours of Coding</h2>
+    </div>
+
+    <div id="schedule" class="content">
+        <h2 class="fade-in">Event Schedule</h2>
+        <p class="fade-in">[Insert detailed schedule here]</p>
+    </div>
+
+    <div class="parallax" style="background-image: url('/api/placeholder/1920/1080');">
+        <h2>Amazing Prizes Await</h2>
+    </div>
+
+    <div id="sponsors" class="content">
+        <h2 class="fade-in">Sponsors</h2>
+        <p class="fade-in">We're looking for companies to provide problem statements and sponsorship. Interested in supporting the next generation of tech innovators?</p>
+        <a href="#" class="btn fade-in">Become a Sponsor</a>
+    </div>
+
+    <div id="contact" class="content">
+        <h2 class="fade-in">Contact Us</h2>
+        <p class="fade-in">For inquiries about sponsorship or submitting problem statements, please email us at: sponsor@csiacehackathon.com</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        });
+
+        window.addEventListener('scroll', () => {
+            const parallaxElements = document.querySelectorAll('.parallax');
+            let scrollPosition = window.pageYOffset;
+
+            parallaxElements.forEach(element => {
+                let offset = element.offsetTop;
+                let speed = 0.5;
+                element.style.backgroundPositionY = (offset - scrollPosition) * speed + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
